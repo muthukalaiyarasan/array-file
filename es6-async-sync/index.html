@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	  <meta name="viewport" content="width-device,initial-scale=1.0">
+	  
+	  <title>js-start</title>
+	  </head>
+<body>	  
+	  <h1>ES6-class</h1>
+
+
+
+	
+<h1>asynchronous/synchronous</h1>
+<h2>call back using</h2>
+<script>
+  function one(){
+      console.log("1")
+	  two();
+	  }
+  function two(){
+       setTimeout(()=>{
+         console.log("2")
+		 three();
+          },2000)
+       
+}
+function three(){
+     console.log("3")
+      }
+one()	  
+    
+</script>
+<h1>promise</h1>
+<h3>*resolved,
+   * pending,
+   *rejected</h3>
+<script>
+     let ae=new Promise((res,rej)=>{
+	    rej("hi");
+		})
+		ae.then(console.log)
+		.catch(console.log)
+</script>
+<script>
+  zzz=1
+  let t=new Promise((res,rej)=>{
+     if(zzz%7==0){
+	            res("divisible by 7")
+				 }
+	 else{
+	      rej("not divisible by 7")
+	 }			 
+	  
+	 })
+	 
+	  t.then(console.log)
+	   .catch(console.log)
+</script>
+
+<script>
+   let x= Math.round(Math.random()*10);
+   console.log(x)
+      function display(x){
+	  return new Promise((res,rej)=>{
+	  if(x==5){
+	     res("this is equal") 
+	  }
+	  else{
+	       rej("this is not in 5")
+		   }
+		   })
+		   }
+		   display(x).then(console.log)
+		             .catch(console.log)
+	</script>
+<!-- <script>	 -->
+   <!-- let i=parseInt(prompt(" Enter the number")); -->
+				<!-- function check(i) -->
+				<!-- { -->
+				<!-- let sum=0; -->
+				<!-- let b=i -->
+				<!-- while (i!=0) -->
+				<!-- { -->
+				<!-- let rem=i%10; -->
+				<!-- sum=sum*10+rem; -->
+				<!-- i=(i-rem)/10; -->
+				<!-- } -->
+				
+				
+				<!-- return new Promise((c,d)=> -->
+				<!-- { -->
+				<!-- if(b==sum) -->
+				<!-- { -->
+				<!-- c(" It is palindrome"); -->
+				<!-- } -->
+				<!-- else -->
+				<!-- { -->
+				<!-- d(" Not Palindrome"); -->
+				<!-- } -->
+				<!-- }) -->
+				<!-- } -->
+				<!-- check(i).then(console.log) -->
+				<!-- .catch(console.log); -->
+<!-- </script> -->
+
+<!-- <script> -->
+  <!-- let z=parseInt(prompt(" Enter the number")); -->
+       <!-- function check(z){ -->
+	   <!-- console.log(z) -->
+	         <!-- return new Promise((res,rej)=>{ -->
+            <!-- if(z%100!=0&&z%4==0){ -->
+			       <!-- res("this is  leap year") -->
+				   <!-- } -->
+		     <!-- else{ -->
+                      <!-- rej("not a leap year") -->
+                     <!-- }	 -->
+         <!-- }) -->
+    <!-- } -->
+<!-- check(z).then(console.log)	 -->
+    <!-- .catch(console.log) -->
+<!-- </script> -->
+<!-- <script> -->
+<!-- function checkArmstrong(num){ -->
+    <!-- let input = num; -->
+    <!-- let sum = 0; -->
+    <!-- var len = length(num); -->
+    <!-- while(input>0){ -->
+        <!-- let rem = input%10; -->
+        <!-- input = (input - rem)/10; -->
+        <!-- sum = (rem**len)+sum; -->
+    <!-- } -->
+    <!-- return sum; -->
+<!-- } -->
+
+<!-- function length (digit){ -->
+    <!-- let n =0; -->
+    <!-- while(digit>0){ -->
+    <!-- let rem = digit%10; -->
+    <!-- digit = (digit-rem)/10; -->
+    <!-- n++ -->
+    <!-- } -->
+    <!-- return n; -->
+<!-- } -->
+<!-- function conclusion (res,rej){ -->
+    <!-- var temp =prompt("Enter the number"); -->
+<!-- let count = checkArmstrong(temp); -->
+<!-- if(temp == count){ -->
+    <!-- res("Given number is an Armstrong"); -->
+<!-- } -->
+<!-- else{ -->
+        <!-- rej("Given number is not an Armstrong"); -->
+
+<!-- } -->
+    
+<!-- } -->
+<!-- let promise = new Promise(conclusion); -->
+<!-- promise.then(suc).catch(fail); -->
+<!-- function suc(data){ -->
+    <!-- console.log( `Excellent ${data}`); -->
+<!-- } -->
+
+<!-- function fail(data){ -->
+    <!-- console.log(`So sad ${data}`); -->
+<!-- } -->
+<!-- </script> -->
+<script>
+  function one(){
+    return new Promise((r,s)=>{
+	    r("resolve")
+	   })
+	   }
+	   function two(){
+	      return new Promise((r,s)=>{
+		         s("fail")
+			 })
+			 }
+			 one().then((x)=>{
+			    console.log(x)
+			  })
+			  two().catch((y)=>{
+			    console.log(y)
+			  })
+</script>
+<h1>promise chaining</h1>
+<script>
+ function one(){
+    return new Promise((r,s)=>{
+	 setTimeout(()=>{
+	       r("res")
+		   },2000)
+	   })
+	   }
+	   function two(y){
+	      return new Promise((r,s)=>{
+		      setTimeout(()=>{
+			    r("kalai",y)
+				},1000)
+		       
+			 })
+			 }
+	 function three(){
+	      return new Promise((r,s)=>{
+		      setTimeout(()=>{
+			    s ("kavi")
+				},3000)
+		         
+			 })
+			 }
+			 
+			 one().then((x)=>{ 
+			    console.log(x)
+				two(x).then((y)=>{
+				     console.log(y)
+					  three().then(console.log)
+				})
+			  })
+			  .catch((z)=>{
+			    console.log(z)
+			  })
+          <!-- Promise.all([one(),two(),three()]) -->
+		     <!-- .then(console.log) -->
+			 <!-- .catch(console.log) -->
+</script>
+<script>
+     let a=5
+	 let xx=new Promise((res,rej)=>{
+	    let b=10
+	    let c=a+b
+		 if(c==15){
+		   res("this number is same")
+		 }
+		 else{
+		   rej("this number is not same")
+		  }
+		  
+	 })
+	 xx.then(console.log)
+	  .catch (console.log)
+   
+</script>
+<script>
+ function e(){
+    return new Promise((r,s)=>{
+	  s("this is promise")
+	   })
+	   }
+	   function f(){
+	      return new Promise((r,s)=>{
+		      r("this is promise chaining")
+		       })
+			 }
+	 function g(){
+	      return new Promise((r,s)=>{
+		     r("this is nota value")
+			 })
+			 }
+			 e().then((x)=>{
+			     console.log(x)
+				   f().then((y)=>{
+				    console.log(y)
+					  g().then(console.log)
+					  })
+					  })
+			 .catch((z)=>{
+			     console.log(z)
+			 })
+</script>
+</body>                                                                                         
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

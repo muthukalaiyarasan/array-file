@@ -1,0 +1,797 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	  <meta name="viewport" content="width-device,initial-scale=1.0">
+	  
+	  <title>js-start</title>
+	  </head>
+<body>	  
+	  <h1>ES6-class</h1>
+
+
+
+	<h1>promise chaining</h1>
+
+<!-- <script> -->
+  <!-- function one(){ -->
+    <!-- return new Promise((r,s)=>{ -->
+	    <!-- r("resolve") -->
+	   <!-- }) -->
+	   <!-- } -->
+	   <!-- function two(){ -->
+	      <!-- return new Promise((r,s)=>{ -->
+		         <!-- s("fail") -->
+			 <!-- }) -->
+			 <!-- } -->
+			 <!-- one().then((x)=>{ -->
+			    <!-- console.log(x) -->
+			  <!-- }) -->
+			  <!-- two().catch((y)=>{ -->
+			    <!-- console.log(y) -->
+			  <!-- }) -->
+<!-- </script> -->
+
+<!-- <script> -->
+ <!-- function one(){ -->
+    <!-- return new Promise((r,s)=>{ -->
+	 <!-- setTimeout(()=>{ -->
+	       <!-- r("res") -->
+		   <!-- },2000) -->
+	   <!-- }) -->
+	   <!-- } -->
+	   <!-- function two(y){ -->
+	      <!-- return new Promise((r,s)=>{ -->
+		      <!-- setTimeout(()=>{ -->
+			    <!-- r("kalai",y) -->
+				<!-- },1000) -->
+		       
+			 <!-- }) -->
+			 <!-- } -->
+	 <!-- function three(){ -->
+	      <!-- return new Promise((r,s)=>{ -->
+		      <!-- setTimeout(()=>{ -->
+			    <!-- s ("kavi") -->
+				<!-- },3000) -->
+		         
+			 <!-- }) -->
+			 <!-- } -->
+			 
+			 <!-- one().then((x)=>{  -->
+			    <!-- console.log(x) -->
+				<!-- two(x).then((y)=>{ -->
+				     <!-- console.log(y) -->
+					  <!-- three().then(console.log) -->
+				<!-- }) -->
+			  <!-- }) -->
+			  <!-- .catch((z)=>{ -->
+			    <!-- console.log(z) -->
+			  <!-- }) -->
+          <!-- Promise.all([one(),two(),three()]) -->
+		     <!-- .then(console.log) -->
+			 <!-- .catch(console.log) -->
+<!-- </script> -->
+<!-- <script> -->
+     <!-- let a=5 -->
+	 <!-- let xx=new Promise((res,rej)=>{ -->
+	    <!-- let b=10 -->
+	    <!-- let c=a+b -->
+		 <!-- if(c==15){ -->
+		   <!-- res("this number is same") -->
+		 <!-- } -->
+		 <!-- else{ -->
+		   <!-- rej("this number is not same") -->
+		  <!-- } -->
+		  
+	 <!-- }) -->
+	 <!-- xx.then(console.log) -->
+	  <!-- .catch (console.log) -->
+   
+<!-- </script> -->
+<!-- <script> -->
+ <!-- function e(){ -->
+    <!-- return new Promise((r,s)=>{ -->
+	  <!-- s("this is promise") -->
+	   <!-- }) -->
+	   <!-- } -->
+	   <!-- function f(){ -->
+	      <!-- return new Promise((r,s)=>{ -->
+		      <!-- r("this is promise chaining") -->
+		       <!-- }) -->
+			 <!-- } -->
+	 <!-- function g(){ -->
+	      <!-- return new Promise((r,s)=>{ -->
+		     <!-- r("this is nota value") -->
+			 <!-- }) -->
+			 <!-- } -->
+			 <!-- e().then((x)=>{ -->
+			     <!-- console.log(x) -->
+				   <!-- f().then((y)=>{ -->
+				    <!-- console.log(y) -->
+					  <!-- g().then(console.log) -->
+					  <!-- }) -->
+					  <!-- }) -->
+			 <!-- .catch((z)=>{ -->
+			     <!-- console.log(z) -->
+			 <!-- }) -->
+<!-- </script> -->
+<!-- <script> -->
+<!-- function ee(){ -->
+    <!-- return new Promise((r,s)=>{ -->
+	  <!-- r("this is promise") -->
+	   <!-- }) -->
+	   <!-- } -->
+	   <!-- function ff(){ -->
+	      <!-- return new Promise((r,s)=>{ -->
+		      <!-- s("promise chaining") -->
+		       <!-- }) -->
+			 <!-- } -->
+	 <!-- async function check(){ -->
+	      <!-- try{ -->
+		  <!-- let a=await one() -->
+		  <!-- console.log(a) -->
+		  <!-- let b=await two() -->
+		  <!-- } -->
+		  <!-- catch{ -->
+		      <!-- console.log("error") -->
+		  <!-- } -->
+		  <!-- } -->
+		  <!-- check() -->
+		  
+	
+<!-- </script> -->
+<h1>async await</h1>
+<script>
+  let a=parseInt(prompt("enter the num"))
+    let b=a;
+	
+	let sum=0;
+	function x(){
+	    return new Promise((r,s)=>{
+		  while(a!=0){
+		     let rem=a%10;
+			  a=(a-rem)/10;
+			  sum=sum+(rem*rem*rem);
+			  
+		  }
+		  r(sum)
+		})
+	}
+
+	function y(sum){
+	    return new Promise((r,s)=>{
+		  if(b==sum){
+		     r("this is armstrong")
+			 }
+		  else{
+		     s("not a armstrong")
+			}
+		})
+	}
+	async function check(){
+	     try{
+		   let sum=await x()
+		   let b=await y(sum)
+		   console.log(b)
+		 }
+		 catch{
+		   console.log("error")
+		 }
+	}
+	check()
+  </script>
+  <!-- <script> -->
+      <!-- const aea=[1,2,3,4,5] -->
+	   <!-- const[c,...d]=aea; -->
+         <!-- console.log(c,d) -->
+      
+	     <!-- var obj={ -->
+		    <!-- ada:1, -->
+			<!-- asb:2, -->
+			<!-- aes:4, -->
+			<!-- ass:5 -->
+		 <!-- } -->
+		 <!-- const {ada,...ass}=obj -->
+		 <!-- console.log(ada,ass ) -->
+  <!-- </script> -->
+  <h1>promise chaing</h1>
+  <script>
+    let l=parseInt(prompt("Enter any number"));
+	let j=l;
+				
+				function pali(x){
+					let sum=0;
+
+				return  new Promise((res,rej)=>{   
+				
+				while(l!=0)
+				{
+				let rem =l%10;
+				l=(l-rem)/10
+				sum=sum*10+rem;
+				}
+				res(sum)
+				})
+				
+				
+				}
+                function palin(sum){	
+				console.log(sum)
+				
+				return new Promise((res,rej)=>{
+				if(j==sum)
+				{
+				res(" Its palindrome number")
+				}
+				else 
+				{
+				rej(" Not palindrome");
+				}
+				})
+				}
+				pali().then((x)=>{
+				    console.log(x)
+					palin(x).then(console.log)
+				
+				})
+				.catch((z)=>{
+				     console.log(z);
+					 })
+  </script>
+  <h1>class</h1>
+  <script>
+    class Employee{
+	     constructor(name,age){
+		    this .a=name
+			this .b=age
+			
+		 }
+		 getname(){
+		    console.log(this.a)
+		 }
+	}
+     let emp1=new Employee("kalai",22)
+	 emp1.getname()
+	 console.log(emp1)
+	 
+	 
+  </script>
+  <script>
+     class details{
+	    constructor(name,dateofbirth,degree,skil,district){
+		    this.h1=name
+			this.h2=dateofbirth
+			this.h3=degree
+			this.h4=skil
+			this.h5=district
+			}
+			getname(){
+			    return(`"iam${this.h1}mydob${this.h2}iamcompleted${this.h3}technicalskils${this.h4},${this.h5}`)
+			}
+		}
+		let detail=new details("kalaiyarasan","22-07-2001","BE",["html","css","js","python"],"tenkasi")
+		let detail1=new details("kavith","2-3-2003","BSC",["Html","css","basicphp"],"tirunelveli")
+		let detail2=new details("aswin","4-9-1997","MSC,BSC",["html","css","js","angular","python"],"madurai")
+		console.log(detail1.getname())
+		
+		console.log(detail2)
+		console.log(detail1)
+		console.log(detail)
+	 
+  </script>
+  <script>
+  class detai{
+	    constructor(name,dateofbirth,degree,skil,district){
+		    this.h1=name
+			this.h2=dateofbirth
+			this.h3=degree
+			this.h4=skil
+			this.h5=district
+			}
+			}
+			getname(){
+			    return(deta)
+			}
+		}
+		let deta=new detai("kalaiyarasan","22-07-2001","BE",["html","css","js","python"],"tenkasi")
+        let v=deta.getname()
+		console.log(v)
+		class trainee extends detai{
+		    constructor(name,dateofbirth,degree,skil,district,state,percentage,){
+			   super(name,dateofbirth,degree,skil,district)
+			   
+			          this.h6=state
+					  this.h7=percentage
+					  
+			}
+		}
+		let detaiils=new trainee("aravinth","14-6-2001","DME",["html basic","js basic"],"thiruchy","tamil nadu",80)
+          console.log(detaiils)
+  </script>
+  <h1>es6 ans perfect cube</h1>
+  <script>
+     function perfectCube(N)
+{
+	let cube;
+	for(let i = 0; i <= N; i++)
+	{
+		cube = i * i * i;
+		if (cube === N)
+		{
+			document.write("Yes");
+			return;
+		}
+		else if (cube > N)
+		{
+			document.write("NO");
+			return;
+		}
+	}
+}
+perfectCube(27);
+  </script>
+</body>                                                                                         
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
